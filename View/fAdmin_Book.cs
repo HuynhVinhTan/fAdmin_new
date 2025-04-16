@@ -174,6 +174,7 @@ namespace PBL_Tan.View
                 MessageBox.Show("Vui lòng chọn sách để sửa.", "Cảnh Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            textBox2.ReadOnly = true;
             textBox1.Text= BUS_Book.Instance.GetAllCustomer()[Index].BookId;
             textBox2.Text = BUS_Book.Instance.GetAllCustomer()[Index].Name;
             textBox3.Text = BUS_Book.Instance.GetAllCustomer()[Index].Category;
@@ -235,6 +236,7 @@ namespace PBL_Tan.View
                     Book book = new Book(textBox1.Text, textBox2.Text, textBox3.Text, double.Parse(textBox4.Text), int.Parse(textBox5.Text), textBox6.Text);
                     BUS_Book.Instance.UpdateBook(book, Index);
                     LoadBook();
+                    textBox2.ReadOnly = false;
                     clear_panel();
                 }
             }
